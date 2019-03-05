@@ -107,15 +107,14 @@ int main (int argc, char *argv[])
 
     // Copy host variables to device ------------------------------------------
 
-
-    printf("Copying data from host to device..."); fflush(stdout);
+    printf("Copying data from Host to Device, Launching kernel and copying data from Device to Host..."); fflush(stdout);
     startTime(&timer);
-
-    //INSERT CODE HERE
 
     unsigned int i = 0;
 
     for(i = 0;VecSize - i >= SegSize*StreamN; i += SegSize*StreamN){
+        
+
         cudaMemcpyAsync(A_d0, A_h+i, SegSize*sizeof(float), cudaMemcpyHostToDevice, stream0);
         cudaMemcpyAsync(B_d0, B_h+i, SegSize*sizeof(float), cudaMemcpyHostToDevice, stream0);
 
@@ -125,29 +124,22 @@ int main (int argc, char *argv[])
         cudaMemcpyAsync(A_d2, A_h+i+2*SegSize, SegSize*sizeof(float), cudaMemcpyHostToDevice, stream2);
         cudaMemcpyAsync(B_d2, B_h+i+2*SegSize, SegSize*sizeof(float), cudaMemcpyHostToDevice, stream2);
         
-        // Launch kernel  ---------------------------
-        printf("Launching kernel..."); fflush(stdout);
-        startTime(&timer);
+
 
 
         VecAdd<<<(SegSize - 1)/BLOCK_SIZE+1, BLOCK_SIZE, 0, stream0>>>(SegSize, A_d0, B_d0, C_d0);
         VecAdd<<<(SegSize - 1)/BLOCK_SIZE+1, BLOCK_SIZE, 0, stream1>>>(SegSize, A_d1, B_d1, C_d1);
         VecAdd<<<(SegSize - 1)/BLOCK_SIZE+1, BLOCK_SIZE, 0, stream2>>>(SegSize, A_d2, B_d2, C_d2);
-        
-        
 
-        printf("Copying data from device to host..."); fflush(stdout);
-        startTime(&timer);
 
         cudaMemcpyAsync(C_h+i, C_d0, SegSize*sizeof(float), cudaMemcpyDeviceToHost, stream0);
         cudaMemcpyAsync(C_h+i+SegSize, C_d1, SegSize*sizeof(float), cudaMemcpyDeviceToHost, stream1);
         cudaMemcpyAsync(C_h+i+2*SegSize, C_d2, SegSize*sizeof(float), cudaMemcpyDeviceToHost, stream2);
 
-        stopTime(&timer); printf("%f s\n", elapsedTime(timer));
+        
     }
 
     
-
     cudaMalloc((void**)&A_d0, sizeof(float)*leftover);
     cudaMalloc((void**)&B_d0, sizeof(float)*leftover);
     cudaMalloc((void**)&C_d0, sizeof(float)*leftover);
@@ -163,6 +155,8 @@ int main (int argc, char *argv[])
     cudaStreamSynchronize(stream0);
     cudaStreamSynchronize(stream1);
     cudaStreamSynchronize(stream2);
+
+    stopTime(&timer); printf("%f s\n", elapsedTime(timer));
     
 
     verify(A_h, B_h, C_h, VecSize);
