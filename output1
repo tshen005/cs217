@@ -1,0 +1,8 @@
+
+Setting up the problem...0.370515 s
+    size Of vector: 1000000 x 0
+  Allocating device variables...0.001707 s
+Copying data from host to device...Launching kernel...Copying data from device to host...0.000029 s
+
+TEST PASSED
+
