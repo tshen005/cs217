@@ -1,33 +1,33 @@
 
-Setting up the problem...==5038== NVPROF is profiling process 5038, command: ./vector_add
-0.368461 s
+Setting up the problem...==7212== NVPROF is profiling process 7212, command: ./vector_add
+0.370130 s
     size Of vector: 1000000 x 0
-  Allocating device variables...0.001693 s
-Copying data from host to device...Launching kernel...Copying data from device to host...0.000031 s
+  Allocating device variables...0.001786 s
+Copying data from Host to Device, Launching kernel and copying data from Device to Host...0.001495 s
 
 TEST PASSED
 
-==5038== Profiling application: ./vector_add
-==5038== Profiling result:
+==7212== Profiling application: ./vector_add
+==7212== Profiling result:
             Type  Time(%)      Time     Calls       Avg       Min       Max  Name
- GPU activities:   62.66%  1.1451ms         8  143.14us  2.0800us  194.02us  [CUDA memcpy HtoD]
-                   31.90%  582.92us         4  145.73us  2.7520us  196.48us  [CUDA memcpy DtoH]
-                    5.44%  99.360us         4  24.840us  3.5200us  37.376us  VecAdd(int, float const *, float const *, float*)
-      API calls:   89.77%  142.64ms         3  47.548ms  8.3100us  142.63ms  cudaStreamCreateWithFlags
-                    3.81%  6.0509ms         3  2.0170ms  1.9048ms  2.0805ms  cudaHostAlloc
-                    1.77%  2.8058ms         3  935.27us  872.45us  989.88us  cudaFreeHost
-                    1.75%  2.7821ms        12  231.84us  6.2570us  1.0854ms  cudaMalloc
-                    1.05%  1.6691ms         9  185.45us  6.6400us  265.81us  cudaFree
-                    0.93%  1.4779ms       384  3.8480us     164ns  172.07us  cuDeviceGetAttribute
-                    0.35%  553.41us         4  138.35us  135.90us  141.40us  cuDeviceTotalMem
-                    0.24%  374.60us         1  374.60us  374.60us  374.60us  cudaGetDeviceProperties
-                    0.09%  144.80us         4  36.199us  32.623us  44.269us  cuDeviceGetName
-                    0.09%  135.63us         3  45.211us  1.1710us  132.94us  cudaStreamSynchronize
-                    0.07%  119.05us        12  9.9200us  4.5420us  34.747us  cudaMemcpyAsync
-                    0.06%  98.942us         4  24.735us  9.4600us  60.227us  cudaLaunchKernel
-                    0.01%  18.937us         3  6.3120us  2.4540us  13.792us  cudaStreamDestroy
-                    0.01%  15.170us         1  15.170us  15.170us  15.170us  cudaGetDevice
-                    0.01%  10.863us         4  2.7150us  1.6820us  4.9050us  cuDeviceGetPCIBusId
-                    0.00%  2.3710us         8     296ns     178ns     775ns  cuDeviceGet
-                    0.00%  1.6490us         3     549ns     235ns     762ns  cuDeviceGetCount
-                    0.00%  1.1200us         4     280ns     236ns     338ns  cuDeviceGetUuid
+ GPU activities:   62.83%  1.1469ms         8  143.37us  1.9840us  195.14us  [CUDA memcpy HtoD]
+                   31.71%  578.95us         4  144.74us  2.7200us  195.65us  [CUDA memcpy DtoH]
+                    5.46%  99.618us         4  24.904us  3.7120us  37.633us  VecAdd(int, float const *, float const *, float*)
+      API calls:   88.93%  143.38ms         3  47.794ms  8.4050us  143.36ms  cudaStreamCreateWithFlags
+                    4.55%  7.3290ms         3  2.4430ms  1.9061ms  3.3263ms  cudaHostAlloc
+                    1.79%  2.8839ms        12  240.33us  6.6940us  1.0949ms  cudaMalloc
+                    1.78%  2.8731ms         3  957.69us  876.27us  1.0416ms  cudaFreeHost
+                    1.05%  1.6880ms         9  187.55us  6.9460us  266.83us  cudaFree
+                    0.97%  1.5669ms       384  4.0800us     162ns  176.94us  cuDeviceGetAttribute
+                    0.35%  559.35us         4  139.84us  135.49us  146.22us  cuDeviceTotalMem
+                    0.24%  387.95us         1  387.95us  387.95us  387.95us  cudaGetDeviceProperties
+                    0.10%  155.35us         4  38.837us  34.808us  47.738us  cuDeviceGetName
+                    0.08%  123.31us         3  41.103us  1.2120us  120.47us  cudaStreamSynchronize
+                    0.07%  120.81us        12  10.067us  4.3370us  39.668us  cudaMemcpyAsync
+                    0.07%  112.78us         4  28.194us  11.026us  68.780us  cudaLaunchKernel
+                    0.01%  21.263us         3  7.0870us  2.5200us  15.479us  cudaStreamDestroy
+                    0.01%  16.586us         1  16.586us  16.586us  16.586us  cudaGetDevice
+                    0.01%  11.238us         4  2.8090us  1.8370us  5.3110us  cuDeviceGetPCIBusId
+                    0.00%  3.1400us         8     392ns     199ns     847ns  cuDeviceGet
+                    0.00%  1.7190us         3     573ns     319ns     843ns  cuDeviceGetCount
+                    0.00%  1.0220us         4     255ns     219ns     337ns  cuDeviceGetUuid

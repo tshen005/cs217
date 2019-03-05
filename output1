@@ -1,31 +1,31 @@
 
-Setting up the problem...==6151== NVPROF is profiling process 6151, command: ./vector_add
-0.368076 s
+Setting up the problem...==7179== NVPROF is profiling process 7179, command: ./vector_add
+0.369096 s
     size Of vector: 1000000 x 0
-  Allocating device variables...0.001755 s
-Copying data from host to device...Launching kernel...Copying data from device to host...0.000029 s
+  Allocating device variables...0.001656 s
+Copying data from Host to Device, Launching kernel and copying data from Device to Host...0.001496 s
 
 TEST PASSED
 
-==6151== Profiling application: ./vector_add
-==6151== Profiling result:
+==7179== Profiling application: ./vector_add
+==7179== Profiling result:
    Start  Duration            Grid Size      Block Size     Regs*    SSMem*    DSMem*      Size  Throughput  SrcMemType  DstMemType           Device   Context    Stream  Name
-366.94ms  186.63us                    -               -         -         -         -  1.2716MB  6.6537GB/s      Pinned      Device    Tesla M60 (0)         1        17  [CUDA memcpy HtoD]
-367.14ms  186.88us                    -               -         -         -         -  1.2716MB  6.6446GB/s      Pinned      Device    Tesla M60 (0)         1        17  [CUDA memcpy HtoD]
-367.33ms  246.53us                    -               -         -         -         -  1.2716MB  5.0369GB/s      Pinned      Device    Tesla M60 (0)         1        19  [CUDA memcpy HtoD]
-367.33ms  32.961us            (652 1 1)       (512 1 1)         8        0B        0B         -           -           -           -    Tesla M60 (0)         1        17  VecAdd(int, float const *, float const *, float*) [435]
-367.38ms  254.37us                    -               -         -         -         -  1.2716MB  4.8817GB/s      Device      Pinned    Tesla M60 (0)         1        17  [CUDA memcpy DtoH]
-367.59ms  202.79us                    -               -         -         -         -  1.2716MB  6.1235GB/s      Pinned      Device    Tesla M60 (0)         1        19  [CUDA memcpy HtoD]
-367.81ms  260.42us                    -               -         -         -         -  1.2716MB  4.7683GB/s      Pinned      Device    Tesla M60 (0)         1        18  [CUDA memcpy HtoD]
-367.81ms  28.417us            (652 1 1)       (512 1 1)         8        0B        0B         -           -           -           -    Tesla M60 (0)         1        19  VecAdd(int, float const *, float const *, float*) [437]
-367.84ms  272.20us                    -               -         -         -         -  1.2716MB  4.5620GB/s      Device      Pinned    Tesla M60 (0)         1        19  [CUDA memcpy DtoH]
-368.08ms  204.45us                    -               -         -         -         -  1.2716MB  6.0737GB/s      Pinned      Device    Tesla M60 (0)         1        18  [CUDA memcpy HtoD]
-368.29ms  29.793us            (652 1 1)       (512 1 1)         8        0B        0B         -           -           -           -    Tesla M60 (0)         1        18  VecAdd(int, float const *, float const *, float*) [436]
-368.33ms  189.63us                    -               -         -         -         -  1.2716MB  6.5482GB/s      Device      Pinned    Tesla M60 (0)         1        18  [CUDA memcpy DtoH]
-368.39ms  2.7520us                    -               -         -         -         -        4B  1.3862MB/s      Pinned      Device    Tesla M60 (0)         1        17  [CUDA memcpy HtoD]
-368.40ms  4.3520us                    -               -         -         -         -        4B  897.58KB/s      Pinned      Device    Tesla M60 (0)         1        17  [CUDA memcpy HtoD]
-368.42ms  3.7120us              (1 1 1)         (1 1 1)         8        0B        0B         -           -           -           -    Tesla M60 (0)         1        17  VecAdd(int, float const *, float const *, float*) [446]
-368.52ms  2.6880us                    -               -         -         -         -        4B  1.4192MB/s      Device      Pinned    Tesla M60 (0)         1        17  [CUDA memcpy DtoH]
+367.97ms  185.73us                    -               -         -         -         -  1.2716MB  6.6858GB/s      Pinned      Device    Tesla M60 (0)         1        17  [CUDA memcpy HtoD]
+368.16ms  186.24us                    -               -         -         -         -  1.2716MB  6.6675GB/s      Pinned      Device    Tesla M60 (0)         1        17  [CUDA memcpy HtoD]
+368.36ms  31.841us            (652 1 1)       (512 1 1)         8        0B        0B         -           -           -           -    Tesla M60 (0)         1        17  VecAdd(int, float const *, float const *, float*) [435]
+368.36ms  194.63us                    -               -         -         -         -  1.2716MB  6.3802GB/s      Pinned      Device    Tesla M60 (0)         1        19  [CUDA memcpy HtoD]
+368.41ms  194.02us                    -               -         -         -         -  1.2716MB  6.4002GB/s      Device      Pinned    Tesla M60 (0)         1        17  [CUDA memcpy DtoH]
+368.56ms  190.05us                    -               -         -         -         -  1.2716MB  6.5339GB/s      Pinned      Device    Tesla M60 (0)         1        19  [CUDA memcpy HtoD]
+368.76ms  29.408us            (652 1 1)       (512 1 1)         8        0B        0B         -           -           -           -    Tesla M60 (0)         1        19  VecAdd(int, float const *, float const *, float*) [437]
+368.76ms  194.91us                    -               -         -         -         -  1.2716MB  6.3708GB/s      Pinned      Device    Tesla M60 (0)         1        18  [CUDA memcpy HtoD]
+368.79ms  190.72us                    -               -         -         -         -  1.2716MB  6.5108GB/s      Device      Pinned    Tesla M60 (0)         1        19  [CUDA memcpy DtoH]
+368.96ms  189.38us                    -               -         -         -         -  1.2716MB  6.5571GB/s      Pinned      Device    Tesla M60 (0)         1        18  [CUDA memcpy HtoD]
+369.17ms  30.561us            (652 1 1)       (512 1 1)         8        0B        0B         -           -           -           -    Tesla M60 (0)         1        18  VecAdd(int, float const *, float const *, float*) [436]
+369.20ms  189.76us                    -               -         -         -         -  1.2716MB  6.5438GB/s      Device      Pinned    Tesla M60 (0)         1        18  [CUDA memcpy DtoH]
+369.25ms  2.1760us                    -               -         -         -         -        4B  1.7531MB/s      Pinned      Device    Tesla M60 (0)         1        17  [CUDA memcpy HtoD]
+369.26ms  4.0320us                    -               -         -         -         -        4B  968.81KB/s      Pinned      Device    Tesla M60 (0)         1        17  [CUDA memcpy HtoD]
+369.28ms  3.5840us              (1 1 1)         (1 1 1)         8        0B        0B         -           -           -           -    Tesla M60 (0)         1        17  VecAdd(int, float const *, float const *, float*) [446]
+369.40ms  2.7200us                    -               -         -         -         -        4B  1.4025MB/s      Device      Pinned    Tesla M60 (0)         1        17  [CUDA memcpy DtoH]
 
 Regs: Number of registers used per CUDA thread. This number includes registers used internally by the CUDA driver and/or tools and can be more than what the compiler shows.
 SSMem: Static shared memory allocated per CUDA block.
